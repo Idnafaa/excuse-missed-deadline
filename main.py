@@ -14,6 +14,9 @@ EXCUSE = (
 
 
 def main() -> None:
+    # The gate allows 1 to 200 characters; refuse to write anything
+    # outside it rather than submit an invalid entry.
+    assert 1 <= len(EXCUSE) <= 200, f"excuse is {len(EXCUSE)} characters"
     output_path = "/output/entry.txt"
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
     with open(output_path, "w", encoding="utf-8") as handle:
